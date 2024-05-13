@@ -14,12 +14,9 @@ import java.sql.*;
 public class HelloController {
     @FXML
     public TableView tableView;
-    @FXML
-    private Label welcomeText;
 
     @FXML
     protected void onHelloButtonClick() throws SQLException {
-        welcomeText.setText("Welcome to JavaFX Application!");
 
         Connection conn = null;
         Statement st = null;
@@ -60,6 +57,21 @@ public class HelloController {
         TableColumn<Medicines, String> loginColumn = new TableColumn<Medicines, String>("Name");
         loginColumn.setCellValueFactory(new PropertyValueFactory<Medicines, String>("Name"));
         tableView.getColumns().add(loginColumn);
+
+
+        TableColumn<Medicines, Double> priceColumn = new TableColumn<Medicines, Double>("Price");
+        priceColumn.setCellValueFactory(new PropertyValueFactory<Medicines, Double>("Price"));
+        tableView.getColumns().add(priceColumn);
+
+        TableColumn<Medicines, String> featuresColumn = new TableColumn<Medicines, String>("Features");
+        featuresColumn.setCellValueFactory(new PropertyValueFactory<Medicines, String>("Features"));
+        tableView.getColumns().add(featuresColumn);
+
+        TableColumn<Medicines, Integer> countColumn = new TableColumn<Medicines, Integer>("Count");
+        countColumn.setCellValueFactory(new PropertyValueFactory<Medicines, Integer>("count"));
+        tableView.getColumns().add(countColumn);
+
+
         tableView.setItems(medicines);
 
     }
